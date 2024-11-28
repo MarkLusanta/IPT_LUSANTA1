@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Dark Mode & Add Numbers</title>
+  <style>
+    body.light-mode {
+      background-color: #ffffff;
+      color: #000000;
+    }
+    body.dark-mode {
+      background-color: #333333;
+      color: #ffffff;
+    }
+    #result {
+      margin-top: 10px;
+      font-size: 1.2em;
+    }
+    .container {
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body class="light-mode">
+  <div class="container">
+    <h1>Add Numbers & Toggle Dark Mode</h1>
+
+    <!-- Number Input Fields -->
+    <label for="num1">Enter first number:</label>
+    <input type="number" id="num1" placeholder="Number 1">
+    <br><br>
+    <label for="num2">Enter second number:</label>
+    <input type="number" id="num2" placeholder="Number 2">
+    <br><br>
+
+    <!-- Add Numbers Button -->
+    <button onclick="addNumbers()">Add Numbers</button>
+    <div id="result"></div>
+
+    <!-- Toggle Dark/Light Mode Button -->
+    <br><br>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  </div>
+
+  <script>
+    // Function to add numbers
+    function addNumbers() {
+      const num1 = parseFloat(document.getElementById("num1").value);
+      const num2 = parseFloat(document.getElementById("num2").value);
+      if (isNaN(num1) || isNaN(num2)) {
+        document.getElementById("result").textContent = "Please enter valid numbers.";
+      } else {
+        document.getElementById("result").textContent = "Result: " + (num1 + num2);
+      }
+    }
+
+    // Function to toggle dark/light mode
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      document.body.classList.toggle("light-mode");
+    }
+  </script>
+</body>
+</html>
